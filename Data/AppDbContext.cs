@@ -43,13 +43,17 @@ namespace c_sharp_odontoprev.Data
 
             modelBuilder.Entity<Paciente>()
                 .HasOne(p => p.Genero)
-                .WithMany()
-                .HasForeignKey(p => p.IdGenero);
+                .WithMany() 
+                .HasForeignKey(p => p.IdGenero)
+                .HasConstraintName("FK_GENERO_PACIENTE") 
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Dentista>()
-                .HasOne(d => d.Genero)
+                .HasOne(p => p.Genero)
                 .WithMany()
-                .HasForeignKey(d => d.IdGenero);
+                .HasForeignKey(p => p.IdGenero)
+                .HasConstraintName("FK_GENERO_DENTISTA")
+                .OnDelete(DeleteBehavior.SetNull);
 
             base.OnModelCreating(modelBuilder);
         }
