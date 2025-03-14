@@ -17,5 +17,31 @@ namespace c_sharp_odontoprev.Data
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Login> Logins { get; set; }
         public DbSet<Consulta> Consultas { get; set; }
-}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cidade>()
+                .HasOne(c => c.Estado)
+                .WithMany(e => e.Cidades)
+                .HasForeignKey(c => c.IdEstado)
+                .HasConstraintName("FK_ESTADO")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Bairro>()
+                .HasOne(b => b.Cidade)
+                .WithMany()
+                .HasForeignKey(b => b.IdCidade)
+                .HasConstraintName("FK_CIDADE")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Endereco>()
+                .HasOne(e => e.Bairro)
+                .WithMany()
+                .HasForeignKey(e => e.IdBairro)
+                .HasConstraintName("FK_BAIRRO")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
+        }
+    }
 }
