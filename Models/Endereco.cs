@@ -12,22 +12,22 @@ namespace c_sharp_odontoprev.Models
 
         [Column("LOGRADOURO")]
         [StringLength(50)]
-        public string Logradouro { get; set; }
+        public string? Logradouro { get; set; }
 
         [Column("NUMERO")]
-        public int Numero { get; set; }
+        public int? Numero { get; set; }
 
         [Column("CEP")]
-        public int Cep { get; set; }
+        public int? Cep { get; set; }
 
         [Column("COMPLEMENTO")]
         [StringLength(100)]
-        public string Complemento { get; set; }
+        public string? Complemento { get; set; }
 
         [ForeignKey("OP_BAIRRO")]
         [Column("ID_BAIRRO")]
-        public int IdBairro { get; set; }
+        public int? IdBairro { get; set; }
 
-        public virtual Bairro Bairro { get; set; }
+        public virtual Bairro? Bairro { get; set; }
     }
 }
