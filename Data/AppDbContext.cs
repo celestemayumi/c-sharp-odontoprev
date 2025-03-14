@@ -41,6 +41,8 @@ namespace c_sharp_odontoprev.Data
                 .HasConstraintName("FK_BAIRRO")
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Paciente
+
             modelBuilder.Entity<Paciente>()
                 .HasOne(p => p.Genero)
                 .WithMany() 
@@ -55,6 +57,8 @@ namespace c_sharp_odontoprev.Data
                 .HasConstraintName("FK_LOGIN_PACIENTE") 
                 .IsRequired();
 
+            // Dentista
+
             modelBuilder.Entity<Dentista>()
                 .HasOne(p => p.Genero)
                 .WithMany()
@@ -68,6 +72,19 @@ namespace c_sharp_odontoprev.Data
                 .HasForeignKey<Dentista>(d => d.IdLogin)
                 .HasConstraintName("FK_LOGIN_DENTISTA")
                 .IsRequired();
+
+            // Unidade
+
+            modelBuilder.Entity<Unidade>()
+                .HasOne(u => u.Endereco) 
+                .WithMany() 
+                .HasForeignKey(u => u.IdEndereco)
+                .HasConstraintName("FK_ENDERECO_UNIDADE");
+
+            modelBuilder.Entity<Unidade>()
+            .HasMany(u => u.Consultas)
+            .WithOne(c => c.Unidade)
+            .HasForeignKey(c => c.IdUnidade);
 
             base.OnModelCreating(modelBuilder);
         }

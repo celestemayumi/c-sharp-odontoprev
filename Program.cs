@@ -28,6 +28,12 @@ builder.Services.AddScoped<IService<Bairro>, Service<Bairro>>();
 builder.Services.AddScoped<IRepository<Endereco>, Repository<Endereco>>();
 builder.Services.AddScoped<IService<Endereco>, Service<Endereco>>();
 
+builder.Services.AddScoped<IRepository<Login>, Repository<Login>>();
+builder.Services.AddScoped<IService<Login>, Service<Login>>();
+
+builder.Services.AddScoped<IRepository<Unidade>, Repository<Unidade>>();
+builder.Services.AddScoped<IService<Unidade>, Service<Unidade>>();
+
 
 var app = builder.Build();
 
