@@ -18,6 +18,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRepository<Estado>, Repository<Estado>>();
 builder.Services.AddScoped<IService<Estado>, Service<Estado>>();
 
+builder.Services.AddScoped<IRepository<Cidade>, Repository<Cidade>>();
+builder.Services.AddScoped<IService<Cidade>, Service<Cidade>>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
