@@ -1,4 +1,7 @@
 using c_sharp_odontoprev.Data;
+using c_sharp_odontoprev.Models;
+using c_sharp_odontoprev.Repositories;
+using c_sharp_odontoprev.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,20 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddScoped<IRepository<Estado>, Repository<Estado>>();
+builder.Services.AddScoped<IService<Estado>, Service<Estado>>();
+
+builder.Services.AddScoped<IRepository<Cidade>, Repository<Cidade>>();
+builder.Services.AddScoped<IService<Cidade>, Service<Cidade>>();
+
+builder.Services.AddScoped<IRepository<Bairro>, Repository<Bairro>>();
+builder.Services.AddScoped<IService<Bairro>, Service<Bairro>>();
+
+builder.Services.AddScoped<IRepository<Endereco>, Repository<Endereco>>();
+builder.Services.AddScoped<IService<Endereco>, Service<Endereco>>();
+
 
 var app = builder.Build();
 
