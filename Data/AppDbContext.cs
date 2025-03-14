@@ -41,6 +41,16 @@ namespace c_sharp_odontoprev.Data
                 .HasConstraintName("FK_BAIRRO")
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Paciente>()
+                .HasOne(p => p.Genero)
+                .WithMany()
+                .HasForeignKey(p => p.IdGenero);
+
+            modelBuilder.Entity<Dentista>()
+                .HasOne(d => d.Genero)
+                .WithMany()
+                .HasForeignKey(d => d.IdGenero);
+
             base.OnModelCreating(modelBuilder);
         }
     }

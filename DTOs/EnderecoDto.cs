@@ -7,6 +7,6 @@
         public int? Numero { get; set; }
         public int? Cep { get; set; }
         public string?  Complemento { get; set; }
-        public int? IdBairro { get; set; } // Relacionamento com Bairro
+        public int? IdBairro { get; set; }
     }
 }
