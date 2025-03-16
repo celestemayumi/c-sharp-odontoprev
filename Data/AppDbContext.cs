@@ -46,16 +46,23 @@ namespace c_sharp_odontoprev.Data
 
             modelBuilder.Entity<Paciente>()
                 .HasOne(p => p.Genero)
-                .WithMany() 
+                .WithMany()
                 .HasForeignKey(p => p.IdGenero)
-                .HasConstraintName("FK_GENERO_PACIENTE") 
+                .HasConstraintName("FK_GENERO_PACIENTE")
                 .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Paciente>()
-                .HasOne(p => p.Login) 
-                .WithOne() 
+                .HasOne(p => p.Endereco)
+                .WithMany()
+                .HasForeignKey(p => p.IdEndereco)
+                .HasConstraintName("FK_ENDERECO_PACIENTE")
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Paciente>()
+                .HasOne(p => p.Login)
+                .WithOne()
                 .HasForeignKey<Paciente>(p => p.IdLogin)
-                .HasConstraintName("FK_LOGIN_PACIENTE") 
+                .HasConstraintName("FK_LOGIN_PACIENTE")
                 .IsRequired();
 
             // Dentista
@@ -107,6 +114,18 @@ namespace c_sharp_odontoprev.Data
                 .HasForeignKey(c => c.IdUnidade)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Chaves primarias
+
+            modelBuilder.Entity<Genero>()
+                .HasKey(g => g.ID);
+            modelBuilder.Entity<Endereco>()
+                .HasKey(e => e.ID);
+
+            modelBuilder.Entity<Login>()
+                .HasKey(l => l.ID);
+
+            modelBuilder.Entity<Paciente>()
+                .HasKey(p => p.ID);
 
             base.OnModelCreating(modelBuilder);
         }

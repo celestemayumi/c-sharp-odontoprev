@@ -48,7 +48,5 @@ namespace c_sharp_odontoprev.Models
         [Column("CLIENTE_SUSPEITO")]
         [StringLength(1)]
         public string ClienteSuspeito { get; set; }
-
-        public virtual ICollection<Consulta> Consultas { get; set; }
     }
 }

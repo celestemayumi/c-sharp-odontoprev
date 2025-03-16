@@ -37,6 +37,8 @@ builder.Services.AddScoped<IService<Unidade>, Service<Unidade>>();
 builder.Services.AddScoped<IRepository<Consulta>, Repository<Consulta>>();
 builder.Services.AddScoped<IService<Consulta>, Service<Consulta>>();
 
+builder.Services.AddScoped<IRepository<Paciente>, Repository<Paciente>>();
+builder.Services.AddScoped<IService<Paciente>, Service<Paciente>>();
 
 var app = builder.Build();
 
@@ -49,7 +51,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization(); 
 
-app.MapControllers(); 
+app.MapControllers();
 
 app.Run();
 
