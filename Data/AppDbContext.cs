@@ -20,6 +20,7 @@ namespace c_sharp_odontoprev.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Cidade>()
                 .HasOne(c => c.Estado)
                 .WithMany(e => e.Cidades)
@@ -85,6 +86,27 @@ namespace c_sharp_odontoprev.Data
             .HasMany(u => u.Consultas)
             .WithOne(c => c.Unidade)
             .HasForeignKey(c => c.IdUnidade);
+
+            // Consulta
+
+            modelBuilder.Entity<Consulta>()
+                .HasOne(c => c.Paciente)
+                .WithMany()
+                .HasForeignKey(c => c.IdPaciente)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Consulta>()
+                .HasOne(c => c.Dentista)
+                .WithMany()
+                .HasForeignKey(c => c.IdDentista)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Consulta>()
+                .HasOne(c => c.Unidade)
+                .WithMany()
+                .HasForeignKey(c => c.IdUnidade)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             base.OnModelCreating(modelBuilder);
         }

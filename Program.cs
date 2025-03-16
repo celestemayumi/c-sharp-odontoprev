@@ -34,6 +34,9 @@ builder.Services.AddScoped<IService<Login>, Service<Login>>();
 builder.Services.AddScoped<IRepository<Unidade>, Repository<Unidade>>();
 builder.Services.AddScoped<IService<Unidade>, Service<Unidade>>();
 
+builder.Services.AddScoped<IRepository<Consulta>, Repository<Consulta>>();
+builder.Services.AddScoped<IService<Consulta>, Service<Consulta>>();
+
 
 var app = builder.Build();
 
