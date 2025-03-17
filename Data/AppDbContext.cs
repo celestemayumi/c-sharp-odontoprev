@@ -75,6 +75,13 @@ namespace c_sharp_odontoprev.Data
                 .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Dentista>()
+                .HasOne(p => p.Endereco)
+                .WithMany()
+                .HasForeignKey(p => p.IdEndereco)
+                .HasConstraintName("FK_ENDERECO_DENTISTA")
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Dentista>()
                 .HasOne(d => d.Login) 
                 .WithOne() 
                 .HasForeignKey<Dentista>(d => d.IdLogin)

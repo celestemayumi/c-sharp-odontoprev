@@ -12,7 +12,7 @@ namespace c_sharp_odontoprev.Models
 
         [Column("NOME_DENTISTA")]
         [StringLength(100)]
-        public string Nome { get; set; }
+        public string? Nome { get; set; }
 
         [Column("DATA_DE_NASCIMENTO")]
         public DateTime DataNascimento { get; set; }

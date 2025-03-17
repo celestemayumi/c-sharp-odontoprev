@@ -15,6 +15,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
 
 builder.Services.AddScoped<IRepository<Estado>, Repository<Estado>>();
 builder.Services.AddScoped<IService<Estado>, Service<Estado>>();
@@ -40,6 +51,9 @@ builder.Services.AddScoped<IService<Consulta>, Service<Consulta>>();
 builder.Services.AddScoped<IRepository<Paciente>, Repository<Paciente>>();
 builder.Services.AddScoped<IService<Paciente>, Service<Paciente>>();
 
+builder.Services.AddScoped<IRepository<Dentista>, Repository<Dentista>>();
+builder.Services.AddScoped<IService<Dentista>, Service<Dentista>>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -47,6 +61,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.UseAuthorization(); 
