@@ -54,6 +54,9 @@ builder.Services.AddScoped<IService<Paciente>, Service<Paciente>>();
 builder.Services.AddScoped<IRepository<Dentista>, Repository<Dentista>>();
 builder.Services.AddScoped<IService<Dentista>, Service<Dentista>>();
 
+builder.Services.AddSingleton<MLService>();
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
