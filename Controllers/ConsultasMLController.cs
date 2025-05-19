@@ -14,10 +14,7 @@ namespace c_sharp_odontoprev.Controllers
         {
             _mlService = mlService;
         }
-
-        /// <summary>
-        /// Treina o modelo com os dados do CSV.
-        /// </summary>
+        
         [HttpPost("treinar")]
         public IActionResult Treinar()
         {
@@ -25,10 +22,6 @@ namespace c_sharp_odontoprev.Controllers
             return Ok(new { mensagem = "Modelo treinado com sucesso!" });
         }
 
-        /// <summary>
-        /// Faz previsão se o paciente vai faltar.
-        /// </summary>
-        /// <param name="input">Dados da consulta para previsão</param>
         [HttpPost("prever-falta")]
         public IActionResult PreverFalta([FromBody] InputML input)
         {
