@@ -18,13 +18,12 @@ namespace c_sharp_odontoprev.Services
 
             if (File.Exists(_modelPath))
             {
-                // Carrega modelo salvo
+              
                 _modelo = _mlContext.Model.Load(_modelPath, out _);
                 _predictionEngine = _mlContext.Model.CreatePredictionEngine<InputML, PredML>(_modelo);
             }
             else
             {
-                // Se não existir modelo, treina e cria engine
                 TreinarModelo();
             }
         }
@@ -49,10 +48,8 @@ namespace c_sharp_odontoprev.Services
 
             _modelo = pipeline.Fit(dataView);
 
-            // Salvar o modelo
             _mlContext.Model.Save(_modelo, dataView.Schema, _modelPath);
 
-            // Criar PredictionEngine
             _predictionEngine = _mlContext.Model.CreatePredictionEngine<InputML, PredML>(_modelo);
         }
 
