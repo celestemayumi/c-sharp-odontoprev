@@ -89,7 +89,7 @@ A API foi desenvolvida utilizando uma **arquitetura monolítica**. Optamos por e
 - **PUT /api/estado/{id}**: Atualiza um estado específico.
 - **DELETE /api/estado/{id}**: Deleta um estado específico.
 
-### **10. Estado**
+### **10. ConsultasML**
 
 - **POST /api/consultasML/treinar**: Treina o modelo (deve ser utilizado antes de fazer a predicao).
 - **POST /api/consultasML/prever-falta**: Retorna a predicao para dizer se um paciente ira faltar ou nao.
