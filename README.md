@@ -1,125 +1,132 @@
 # **API OdontoPrev**
 
-Esta é uma API desenvolvida com ASP.NET Core Web API para gerenciamento de dentistas, pacientes, unidades, consultas e outros recursos relacionados a um sistema odontológico.
+Esta Ã© uma API desenvolvida com ASP.NET Core Web API para gerenciamento de dentistas, pacientes, unidades, consultas e outros recursos relacionados a um sistema odontolÃ³gico.
 
 ## **Arquitetura da API**
 
-A API foi desenvolvida utilizando uma **arquitetura monolítica**. Optamos por essa abordagem devido à simplicidade de implementação e manutençã. O uso de microservices seria mais adequado em uma situação onde a aplicação exigisse escalabilidade independente para diferentes componentes, o que não é o caso no momento.
+A API foi desenvolvida utilizando uma **arquitetura monolÃ­tica**. Optamos por essa abordagem devido Ã  simplicidade de implementaÃ§Ã£o e manutenÃ§Ã£o. O uso de microservices seria mais adequado em uma situaÃ§Ã£o onde a aplicaÃ§Ã£o exigisse escalabilidade independente para diferentes componentes, o que nÃ£o Ã© o caso no momento.
 
 ### **Design Patterns Utilizados**
 
-- **DTO (Data Transfer Object)**: Usado para transferir dados entre as camadas de apresentação e de dados, permitindo uma maior flexibilidade e segurança ao manipular informações.
+- **DTO (Data Transfer Object)**: Usado para transferir dados entre as camadas de apresentaÃ§Ã£o e de dados, permitindo uma maior flexibilidade e seguranÃ§a ao manipular informaÃ§Ãµes.
   
-- **Repository Pattern**: Utilizado para abstrair o acesso ao banco de dados, permitindo que a lógica de acesso seja centralizada em repositórios específicos. Isso facilita a manutenção e a testabilidade da aplicação.
+- **Repository Pattern**: Utilizado para abstrair o acesso ao banco de dados, permitindo que a lÃ³gica de acesso seja centralizada em repositÃ³rios especÃ­ficos. Isso facilita a manutenÃ§Ã£o e a testabilidade da aplicaÃ§Ã£o.
 
 ## **Tecnologias Utilizadas**
 
 - **ASP.NET Core Web API**: Framework para desenvolvimento da API.
-- **Entity Framework Core**: ORM utilizado para a interação com o banco de dados.
-- **Oracle Database**: Banco de dados relacional utilizado para armazenar as informações dos recursos.
-- **Swagger/OpenAPI**: Usado para gerar a documentação da API e facilitar o consumo da mesma por outros desenvolvedores.
+- **Entity Framework Core**: ORM utilizado para a interaÃ§Ã£o com o banco de dados.
+- **ML.NET**: Framework de machine learning integrado na api para predicoes.
+- **Oracle Database**: Banco de dados relacional utilizado para armazenar as informaÃ§Ãµes dos recursos.
+- **Swagger/OpenAPI**: Usado para gerar a documentaÃ§Ã£o da API e facilitar o consumo da mesma por outros desenvolvedores.
 
 ## **Endpoints da API**
 
 ### **1. Dentista**
 
 - **GET /api/dentista**: Retorna todos os dentistas.
-- **GET /api/dentista/{id}**: Retorna um dentista específico pelo ID.
+- **GET /api/dentista/{id}**: Retorna um dentista especÃ­fico pelo ID.
 - **POST /api/dentista**: Cria um novo dentista.
-- **PUT /api/dentista/{id}**: Atualiza um dentista específico.
-- **DELETE /api/dentista/{id}**: Deleta um dentista específico.
+- **PUT /api/dentista/{id}**: Atualiza um dentista especÃ­fico.
+- **DELETE /api/dentista/{id}**: Deleta um dentista especÃ­fico.
 
 ### **2. Paciente**
 
 - **GET /api/paciente**: Retorna todos os pacientes.
-- **GET /api/paciente/{id}**: Retorna um paciente específico pelo ID.
+- **GET /api/paciente/{id}**: Retorna um paciente especÃ­fico pelo ID.
 - **POST /api/paciente**: Cria um novo paciente.
-- **PUT /api/paciente/{id}**: Atualiza um paciente específico.
-- **DELETE /api/paciente/{id}**: Deleta um paciente específico.
+- **PUT /api/paciente/{id}**: Atualiza um paciente especÃ­fico.
+- **DELETE /api/paciente/{id}**: Deleta um paciente especÃ­fico.
 
 ### **3. Consulta**
 
 - **GET /api/consulta**: Retorna todas as consultas.
-- **GET /api/consulta/{id}**: Retorna uma consulta específica pelo ID.
+- **GET /api/consulta/{id}**: Retorna uma consulta especÃ­fica pelo ID.
 (Colocamos apenas o GET a fim de evitar fraudes.)
 
 ### **4. Unidade**
 
 - **GET /api/unidade**: Retorna todas as unidades.
-- **GET /api/unidade/{id}**: Retorna uma unidade específica pelo ID.
+- **GET /api/unidade/{id}**: Retorna uma unidade especÃ­fica pelo ID.
 - **POST /api/unidade**: Cria uma nova unidade.
-- **PUT /api/unidade/{id}**: Atualiza uma unidade específica.
-- **DELETE /api/unidade/{id}**: Deleta uma unidade específica.
+- **PUT /api/unidade/{id}**: Atualiza uma unidade especÃ­fica.
+- **DELETE /api/unidade/{id}**: Deleta uma unidade especÃ­fica.
 
-### **5. Endereço**
+### **5. EndereÃ§o**
 
-- **GET /api/endereco**: Retorna todos os endereços.
-- **GET /api/endereco/{id}**: Retorna um endereço específico pelo ID.
-- **POST /api/endereco**: Cria um novo endereço.
-- **PUT /api/endereco/{id}**: Atualiza um endereço específico.
-- **DELETE /api/endereco/{id}**: Deleta um endereço específico.
+- **GET /api/endereco**: Retorna todos os endereÃ§os.
+- **GET /api/endereco/{id}**: Retorna um endereÃ§o especÃ­fico pelo ID.
+- **POST /api/endereco**: Cria um novo endereÃ§o.
+- **PUT /api/endereco/{id}**: Atualiza um endereÃ§o especÃ­fico.
+- **DELETE /api/endereco/{id}**: Deleta um endereÃ§o especÃ­fico.
 
 ### **6. Login**
 
 - **GET /api/login**: Retorna todos os logins.
-- **GET /api/login/{id}**: Retorna um login específico pelo ID.
+- **GET /api/login/{id}**: Retorna um login especÃ­fico pelo ID.
 
 ### **7. Bairro**
 
 - **GET /api/bairro**: Retorna todos os bairros.
-- **GET /api/bairro/{id}**: Retorna um bairro específico pelo ID.
+- **GET /api/bairro/{id}**: Retorna um bairro especÃ­fico pelo ID.
 - **POST /api/bairro**: Cria um novo bairro.
-- **PUT /api/bairro/{id}**: Atualiza um bairro específico.
-- **DELETE /api/bairro/{id}**: Deleta um bairro específico.
+- **PUT /api/bairro/{id}**: Atualiza um bairro especÃ­fico.
+- **DELETE /api/bairro/{id}**: Deleta um bairro especÃ­fico.
 
 ### **8. Cidade**
 
 - **GET /api/cidade**: Retorna todas as cidades.
-- **GET /api/cidade/{id}**: Retorna uma cidade específica pelo ID.
+- **GET /api/cidade/{id}**: Retorna uma cidade especÃ­fica pelo ID.
 - **POST /api/cidade**: Cria uma nova cidade.
-- **PUT /api/cidade/{id}**: Atualiza uma cidade específica.
-- **DELETE /api/cidade/{id}**: Deleta uma cidade específica.
+- **PUT /api/cidade/{id}**: Atualiza uma cidade especÃ­fica.
+- **DELETE /api/cidade/{id}**: Deleta uma cidade especÃ­fica.
 
 ### **9. Estado**
 
 - **GET /api/estado**: Retorna todos os estados.
-- **GET /api/estado/{id}**: Retorna um estado específico pelo ID.
+- **GET /api/estado/{id}**: Retorna um estado especÃ­fico pelo ID.
 - **POST /api/estado**: Cria um novo estado.
-- **PUT /api/estado/{id}**: Atualiza um estado específico.
-- **DELETE /api/estado/{id}**: Deleta um estado específico.
+- **PUT /api/estado/{id}**: Atualiza um estado especÃ­fico.
+- **DELETE /api/estado/{id}**: Deleta um estado especÃ­fico.
 
-## **Documentação da API com Swagger/OpenAPI**
+### **10. Estado**
 
-A documentação da API foi gerada automaticamente utilizando o **Swagger**. Para acessá-la, basta rodar a aplicação e acessar o seguinte link:
+- **POST /api/consultasML/treinar**: Treina o modelo (deve ser utilizado antes de fazer a predicao).
+- **POST /api/consultasML/prever-falta**: Retorna a predicao para dizer se um paciente ira faltar ou nao.
+
+
+## **DocumentaÃ§Ã£o da API com Swagger/OpenAPI**
+
+A documentaÃ§Ã£o da API foi gerada automaticamente utilizando o **Swagger**. Para acessÃ¡-la, basta rodar a aplicaÃ§Ã£o e acessar o seguinte link:
 
 https://localhost:7157/swagger
 
 ## Como executar o projeto:
 
-### 1. Clone o repositório ou faça o download do projeto:
+### 1. Clone o repositÃ³rio ou faÃ§a o download do projeto:
 ```bash
 git clone https://github.com/celestemayumi/c-sharp-odontoprev.git
 ```
-#### Caso tenha clonado o repositório:
-### 2. Navegue até o diretório do projeto
+#### Caso tenha clonado o repositÃ³rio:
+### 2. Navegue atÃ© o diretÃ³rio do projeto
 ```bash
 cd c-sharp-odontoprev
 ```
-### 3. Restaure as dependências:
+### 3. Restaure as dependÃªncias:
 ```bash
 dotnet restore
 ```
-### 4. Execute a aplicação:
+### 4. Execute a aplicaÃ§Ã£o:
 ```bash
 dotnet run
 ```
 
-A aplicação irá abrir o navegador um localhost, caso não abra acesse:
+A aplicaÃ§Ã£o irÃ¡ abrir o navegador um localhost, caso nÃ£o abra acesse:
 
 https://localhost:7157/swagger
 
 ### **Integrantes**
 
 - **Celeste Tanaka** - [GitHub](https://github.com/celestemayumi)
-- **Lívia Mariana Lopes** - [GitHub](https://github.com/LiviaMarianaLopes)
+- **LÃ­via Mariana Lopes** - [GitHub](https://github.com/LiviaMarianaLopes)
 - **Luana Vieira** - [GitHub](https://github.com/luanavss)
